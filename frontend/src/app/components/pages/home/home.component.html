@@ -10,15 +10,21 @@
             <span class="favourite{{food.favourite?'':'not'}}">
                 ❤
             </span>
-            <div>
-                
-            </div>
             <div class="product-item-footer">
                 <div class="origins">
                   <span *ngFor="let origin of food.origins">
                     {{origin}}
                   </span>
                 </div>
+            </div>
+            <div class="cook-time">
+                <span>🕒</span>
+                {{food.cookTime}}
+            </div>
+            <div class="price">
+                <span>
+                    {{food.price | currency}}
+                </span>
             </div>
         </a>
 
