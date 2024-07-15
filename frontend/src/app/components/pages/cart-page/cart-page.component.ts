@@ -15,8 +15,17 @@ export class CartPageComponent {
     })
   }
 
-  removeFromCart(cartItem:CartItem){
+  /**removeFromCart(cartItem:CartItem){
     this.cartService.removeFromCart(cartItem.food.id);
+    this.cart.items = this.cart.items.filter((item) => item !== cartItem);
+
+  }**/
+  removeFromCart(cartItem: CartItem) {
+
+    const index = this.cart.items.indexOf(cartItem);
+    if (index !== -1) {
+      this.cart.items.splice(index, 1);
+    }
   }
 
   changeQuantity(cartItem:CartItem, quantityInString:string){
