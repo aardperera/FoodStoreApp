@@ -18,7 +18,7 @@ export class FoodService {
   }
 
   getAllTags():Tag[]{
-    return sample_tags;  
+    return sample_tags;
   }
 
   getAllFoodsByTag(tag:string):Food[]{

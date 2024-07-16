@@ -22,8 +22,13 @@ export class CartService {
 
   }
 
-  removeFromCart(foodId: string):void{
-    this.cart.items = this.cart.items.filter(item=>item.food.id ===foodId);
+  // removeFromCart(foodId: string):void{
+  //   this.cart.items = this.cart.items.filter(item=>item.food.id ===foodId);
+  //   this.setCartToLocalStorage();
+  // }
+
+  removeFromCart(foodId: string): void {
+    this.cart.items = this.cart.items.filter(item => item.food.id !== foodId);
     this.setCartToLocalStorage();
   }
 
