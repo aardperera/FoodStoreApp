@@ -11,16 +11,18 @@ import { Food } from 'src/app/shared/models/food';
 })
 export class FoodPageComponent {
  food!: Food;
- constructor(activatedRoute:ActivatedRoute,foodService:FoodService, private cartService:CartService, 
+ constructor(activatedRoute:ActivatedRoute,foodService:FoodService, private cartService:CartService,
   private router: Router){
   activatedRoute.params.subscribe((params) =>{
     if(params.id)
-    this.food = foodService.getFoodById(params.id);
+    foodService.getFoodById(params.id).subscribe(serverFood =>{
+      this.food = serverFood;
+    });
   })
  }
 
  addToCart(){
-  this.cartService.addToCart(this.food); 
+  this.cartService.addToCart(this.food);
   this.router.navigateByUrl('/cart-page');
  }
 
